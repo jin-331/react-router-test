@@ -43,6 +43,7 @@ export default function App() {
             <Route path="/topics">
               <Topics />
             </Route>
+            {/* ルートパスは一番最後にしとかないとそれ以降の Component は遷移しない、、 */}
             <Route path="/">
               <Home />
             </Route>
