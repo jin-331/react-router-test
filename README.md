@@ -1,16 +1,24 @@
 # React Router の検証用のリポジトリ
 
-## 環境構築
+## react Router でどう型安全に作るか
 
-### リポジトリ(個人メモ)
+### 問題点
+```
+<Switch>
+    <Route path="/home">
+        <Home>
+    </Route>
+    <Route path="/login">
+        <Login>
+    </Route>
+    <Route path="/user/:id">
+        <User>
+    </Route>
+</Switch>
+```
 
-1. `npx create-react-app react-router-test --template typescript`
-2. github でリポジトリを作成
-3. `git remote add origin https://github.com/....git`
-4. `git branch -M main`
-5. `git push -u origin main`
 
-### React Router
-
-1. `yarn add react-router-dom`
-2. `yarn add -D @types/react-router-dom`
+```
+const {id} = useParams<{id:string}>();
+```
+と言う形で型定義できるが、型安全とは言い難い。
